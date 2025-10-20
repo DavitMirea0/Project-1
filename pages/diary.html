@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Проекты</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="../images/logo.png" alt="">
+            </div>
+            <div class="name">Хачатрян Давид Каренович</div>
+        </div>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <a href="../index.html" class="nav-item">Главная</a>
+            <a href="projects.html" class="nav-item ">Проекты</a>
+            <a href="diary.html" class="nav-item active ">Дневник</a>
+            <a href="contacts.html" class="nav-item">Контакты</a>
+        </nav>
+
+        <!-- Дневник -->
+        <div class="diary-page-content">
+            <div class="diary-header">
+                <h2 class="projects-title">Мои учебный прогресс</h2>
+            </div>
+
+            <!-- Запись 1 -->
+            <div class="project-card" data-category="C#" data-project="1">
+                <div class="project-image">
+                </div>
+                <div class="project-card-content">
+                    <h3> 1.09.2025 </h3>
+                    <p class="project-description">Изучение C#</p>
+                </div>
+            </div>
+
+            <!-- Запись 2 -->
+            <div class="project-card" data-category="JavaScript" data-project="4">
+                <div class="project-image">
+                </div>
+                <div class="project-card-content">
+                    <h3>1.09.2025</h3>
+                    <p class="project-description">Прохождение курса по JavaScript, при помощи платформы Hexlet</p>
+                </div>
+            </div>
+
+            <!-- Запись 3 -->
+            <div class="project-card" data-category="Figma" data-project="5">
+                <div class="project-image">
+                </div>
+                <div class="project-card-content">
+                    <h3>13.08.2025</h3>
+                    <p class="project-description">Наткнулся в рилсах видос, где был 3-дневный марафон по Figme, я
+                        прошел базовые основы, что, где находится</p>
+                </div>
+            </div>
+
+            <!-- Запись 4 -->
+            <div class="project-card" data-category="HTML/CSS" data-project="5">
+                <div class="project-image">
+                </div>
+                <div class="project-card-content">
+                    <h3>17.07.2025</h3>
+                    <p class="project-description">Начал изучение базовых основ HTML/CSS, с помощью stepik</p>
+                </div>
+
+                <!-- Запись 5 -->
+                <div class="project-card" data-category="Qt" data-project="5">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-card-content">
+                        <h3>20.02.2025</h3>
+                        <p class="project-description">Начинал изучение во 2 семестре на дисциплине «Технологии индустриального программирования», когда начинали
+                            еще
+                            курсовую писать</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Навыки -->
+            <div class="skills-section">
+                <h2 class="section-title">Текущие курсы</h2>
+                <div class="skill">
+                    <span class="skill-name">C#</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="20"></div>
+                    </div>
+                    <span class="skill-percentage">20%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name">HTML/CSS</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="30"></div>
+                    </div>
+                    <span class="skill-percentage">30%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name">JavaScript</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="25"></div>
+                    </div>
+                    <span class="skill-percentage">25%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name">Qt</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="45"></div>
+                    </div>
+                    <span class="skill-percentage">45%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name">Figma</span>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-width="30"></div>
+                    </div>
+                    <span class="skill-percentage">30%</span>
+                </div>
+
+                <!--Кнопка «Добавить запись» -->
+                <button class="my-button">Добавить запись</button>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            // Функция для анимации прогресс-баров
+            function animateSkillBars() {
+                const skillBars = document.querySelectorAll('.skill-bar');
+                const percentages = document.querySelectorAll('.skill-percentage');
+
+                skillBars.forEach((bar, index) => {
+                    const targetWidth = bar.getAttribute('data-width');
+
+                    // Задержка для каждого бара
+                    setTimeout(() => {
+                        bar.style.width = targetWidth + '%';
+
+                        // Показываем проценты после анимации
+                        setTimeout(() => {
+                            percentages[index].classList.add('show');
+                        }, 1000);
+                    }, index * 200);
+                });
+            }
+
+            // Запускаем анимацию при загрузке страницы
+            window.addEventListener('load', () => {
+                setTimeout(animateSkillBars, 300);
+            });
+
+            // Опционально: запускать анимацию при прокрутке до секции навыков
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const skillBars = entry.target.querySelectorAll('.skill-bar');
+                        if (skillBars[0].style.width === '0px' || skillBars[0].style.width === '') {
+                            animateSkillBars();
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за секцией навыков
+            const skillsSection = document.querySelector('.skills-section');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+
+            // Обработчики для карточек проектов
+            document.addEventListener('DOMContentLoaded', function () {
+                const projectBoxes = document.querySelectorAll('.project-box');
+
+                projectBoxes.forEach(box => {
+                    box.addEventListener('click', function () {
+                        const projectId = this.getAttribute('data-project-id');
+                        // Перенаправляем на страницу проектов с ID проекта в URL
+                        window.location.href = `pages/projects.html?project=${projectId}`;
+                    });
+                });
+            });
+        </script>
+        <!-- Футер -->
+        <div class="diary-footer">
+            © 2025 Контакты
+        </div>
+    </div>

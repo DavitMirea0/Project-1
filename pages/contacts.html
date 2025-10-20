@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Проекты</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="../images/logo.png" alt="">
+            </div>
+            <div class="name">Хачатрян Давид Каренович</div>
+        </div>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <a href="../index.html" class="nav-item">Главная</a>
+            <a href="projects.html" class="nav-item ">Проекты</a>
+            <a href="diary.html" class="nav-item ">Дневник</a>
+            <a href="contacts.html" class="nav-item active ">Контакты</a>
+        </nav>
+
+        <!-- Свяжитесь со мной -->
+        <div class="diary-page-content">
+            <div class="diary-header">
+                <h2 class="projects-title">Свяжитесь со мной</h2>
+            </div>
+            <div class="modal-content">
+                <form id="feedbackForm" method="dialog">
+                    <div class="form-group">
+                        <label for="name">Имя <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Электронная почта <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-label">Сообщение <span class="required">*</span></label>
+                        <textarea class="message-input" rows="3" placeholder="Введите текст..."></textarea>
+                    </div>
+            </div>
+
+            <!-- Кнопка «Отправить» -->
+            <div class="modal-actions">
+                <button type="button" class="my-button" onclick="submitForm()">Отправить</button>
+            </div>
+            </form>
+
+            <!-- Контакты -->
+            <div class="diary-page-content">
+                <div class="diary-header">
+                    <h2 class="projects-title">Контакты</h2>
+                </div>
+
+                <!-- E-mail -->
+                < <div class="project-card" data-category="E-mail" data-project="4">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-card-content">
+                        <h3>
+                            <img src="../images/icons/email.svg " width="30" height="30">
+                            <a target="_blank"> <a>
+                                    E-mail: davitxch2005@gmail.com
+                                </a>
+                        </h3>
+                        <p class="project-description"></p>
+                    </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="project-card" data-category="GitHub" data-project="4">
+                <div class="project-image">
+                </div>
+                <div class="project-card-content">
+                    <h3>
+                        <img src="../images/icons/github.svg ">
+                        <a target="_blank"> <a>
+                                GitHub: DavitMirea0
+                            </a>
+
+                    </h3>
+                    <p class="project-description"></p>
+                </div>
+            </div>
+
+            <!-- City, Country -->
+            <div class="project-card" data-category="GitHub" data-project="4">
+                <div class="project-image">
+                </div>
+                <div class="project-card-content">
+                    <h3>
+                        <img src="../images/icons/location.svg " width="30" height="30">
+
+                        <a target="_blank"> <a>
+                                Moscow, Russia
+                            </a>
+
+                    </h3>
+                    <p class="project-description"></p>
+                </div>
+            </div>
+        </div>
+        <!-- Футер -->
+        <div class="diary-footer">
+            © 2025 Контакты
+        </div>
+    </div>
+</body>
+
+</html>

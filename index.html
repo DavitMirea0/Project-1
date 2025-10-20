@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Студента</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="name">Хачатрян Давид Каренович</div>
+        </div>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <a href="index.html" class="nav-item active">Главная</a>
+            <a href="pages/projects.html" class="nav-item">Проекты</a>
+            <a href="pages/diary.html" class="nav-item">Дневник</a>
+            <a href="pages/contacts.html" class="nav-item">Контакты</a>
+        </nav>
+
+        <!-- Главное меню -->
+        <div class="main-content">
+            <div class="photo-box">
+                <img class="photo-box" src="images/photo.png" alt="">
+            </div>
+            <div class="intro-section">
+                <p class="intro-text">
+                    Привет! Я студент Института перспективных технологий и индустриального программирования, группа
+                    ЭФБО-18-24<br>
+                    Увлекаюсь веб-разработкой и изучению новых технологий<br>
+                </p>
+                <a href="#" class="download-btn" onclick="openResume(); return false;">Скачать резюме</a>
+            </div>
+        </div>
+        
+        <!-- Навыки -->
+        <div class="skills-section">
+            <h2 class="section-title">Навыки</h2>
+             <div class="skill">
+                <span class="skill-name">C#</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="20"></div>
+                </div>
+                <span class="skill-percentage">20%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">HTML/CSS</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="30"></div>
+                </div>
+                <span class="skill-percentage">30%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="25"></div>
+                </div>
+                <span class="skill-percentage">25%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Qt</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="45"></div>
+                </div>
+                <span class="skill-percentage">45%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Figma</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-width="30"></div>
+                </div>
+                <span class="skill-percentage">30%</span>
+            </div>
+        </div>
+
+        <!-- Проекты -->
+        <div class="projects-section">
+            <h2 class="section-title">Мои проекты</h2>
+            <div class="projects-grid">
+                <div class="project-box" data-project-id="1">Вечный календарь</div>
+                <div class="project-box" data-project-id="4">Матричный калькулятор</div>
+                <div class="project-box" data-project-id="5">Приложение для погоды</div>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <div class="footer">
+            © 2025 Контакты
+        </div>
+    </div>
+
+    <script>
+        // Функция для открытия резюме
+        function openResume() {
+            window.open('./assets/armenia.jpg', '_blank');
+        }
+
+        // Функция для анимации прогресс-баров
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const percentages = document.querySelectorAll('.skill-percentage');
+            
+            skillBars.forEach((bar, index) => {
+                const targetWidth = bar.getAttribute('data-width');
+                
+                setTimeout(() => {
+                    bar.style.width = targetWidth + '%';
+                    
+                    setTimeout(() => {
+                        percentages[index].classList.add('show');
+                    }, 1000);
+                }, index * 200);
+            });
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(animateSkillBars, 300);
+        });
+
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    if (skillBars[0].style.width === '0px' || skillBars[0].style.width === '') {
+                        animateSkillBars();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.querySelector('.skills-section');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectBoxes = document.querySelectorAll('.project-box');
+            
+            projectBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project-id');
+                    window.location.href = `pages/projects.html?project=${projectId}`;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
