@@ -4,97 +4,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио Студента</title>
+    <title>Главная - Портфолио </title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-    <div class="container">
+    <div class="page">
         <!-- Header -->
-        <div class="header">
-            <div class="logo">
-                <img src="images/logo.png" alt="">
+        <header class="header">
+            <div class="container">
+                <div class="header__content">
+                    <div class="header__logo">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="12" cy="8" r="6" fill="#FF7262" />
+                            <circle cx="28" cy="8" r="6" fill="#A259FF" />
+                            <circle cx="12" cy="20" r="6" fill="#1ABCFE" />
+                            <circle cx="28" cy="20" r="6" fill="#0ACF83" />
+                            <circle cx="12" cy="32" r="6" fill="#F24E1E" />
+                        </svg>
+                        <span class="header__brand">Figma</span>
+                    </div>
+                    <h1 class="header__title">Хачатрян Давид Каренович</h1>
+                </div>
             </div>
-            <div class="name">Хачатрян Давид Каренович</div>
-        </div>
+        </header>
 
-        <!-- Навигация -->
+        <!-- Navigation -->
         <nav class="nav">
-            <a href="index.html" class="nav-item active">Главная</a>
-            <a href="pages/projects.html" class="nav-item">Проекты</a>
-            <a href="pages/diary.html" class="nav-item">Дневник</a>
-            <a href="pages/contacts.html" class="nav-item">Контакты</a>
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--active">
+                        <a href="index.html" class="nav__link">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="pages/projects.html" class="nav__link">Проекты</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="pages/diary.html" class="nav__link">Дневник</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="pages/contacts.html" class="nav__link">Контакты</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
-        <!-- Главное меню -->
-        <div class="main-content">
-            <div class="photo-box">
-                <img class="photo-box" src="images/photo.png" alt="">
-            </div>
-            <div class="intro-section">
-                <p class="intro-text">
-                    Привет! Я студент Института перспективных технологий и индустриального программирования, группа
-                    ЭФБО-18-24<br>
-                    Увлекаюсь веб-разработкой и изучению новых технологий<br>
-                </p>
-                <a href="#" class="download-btn" onclick="openResume(); return false;">Скачать резюме</a>
-            </div>
-        </div>
-        
-        <!-- Навыки -->
-        <div class="skills-section">
-            <h2 class="section-title">Навыки</h2>
-             <div class="skill">
-                <span class="skill-name">C#</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-width="20"></div>
-                </div>
-                <span class="skill-percentage">20%</span>
-            </div>
-            <div class="skill">
-                <span class="skill-name">HTML/CSS</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-width="30"></div>
-                </div>
-                <span class="skill-percentage">30%</span>
-            </div>
-            <div class="skill">
-                <span class="skill-name">JavaScript</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-width="25"></div>
-                </div>
-                <span class="skill-percentage">25%</span>
-            </div>
-            <div class="skill">
-                <span class="skill-name">Qt</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-width="45"></div>
-                </div>
-                <span class="skill-percentage">45%</span>
-            </div>
-            <div class="skill">
-                <span class="skill-name">Figma</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-width="30"></div>
-                </div>
-                <span class="skill-percentage">30%</span>
-            </div>
-        </div>
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <!-- Hero Section -->
+                <section class="hero-main">
+                    <div class="photo-box">
+                        <img class="photo-box" src="images/photo.png" alt="">
+                    </div>
+                    <h2 class="hero-main__greeting">Привет! 👋</h2>
+                    <p class="hero-main__description">
+                        Я студент Института перспективных технологий и индустриального программирования, группа
+                        ЭФБО-18-24<br>
+                        Увлекаюсь веб-разработкой и изучению новых технологий
+                    </p>
+                    <button class="button button--primary" onclick="openResume()">
+                        Скачать резюме
+                    </button>
+                </section>
 
-        <!-- Проекты -->
-        <div class="projects-section">
-            <h2 class="section-title">Мои проекты</h2>
-            <div class="projects-grid">
-                <div class="project-box" data-project-id="1">Вечный календарь</div>
-                <div class="project-box" data-project-id="4">Матричный калькулятор</div>
-                <div class="project-box" data-project-id="5">Приложение для погоды</div>
-            </div>
-        </div>
+                <!-- Skills Section -->
+                <section class="skills-main">
+                    <h2 class="section-title">Мои навыки</h2>
+                    <div class="skills-main__grid">
+                        <div class="skill-card">
+                            <div class="skill-card__header">
+                                <span class="skill-card__name">C#</span>
+                                <span class="skill-card__percent">20%</span>
+                            </div>
+                            <div class="skill-card__progress">
+                                <div class="skill-card__progress-bar" data-width="20" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card__header">
+                                <span class="skill-card__name">HTML/CSS</span>
+                                <span class="skill-card__percent">30%</span>
+                            </div>
+                            <div class="skill-card__progress">
+                                <div class="skill-card__progress-bar" data-width="30" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card__header">
+                                <span class="skill-card__name">JavaScript</span>
+                                <span class="skill-card__percent">25%</span>
+                            </div>
+                            <div class="skill-card__progress">
+                                <div class="skill-card__progress-bar" data-width="25" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card__header">
+                                <span class="skill-card__name">Qt</span>
+                                <span class="skill-card__percent">45%</span>
+                            </div>
+                            <div class="skill-card__progress">
+                                <div class="skill-card__progress-bar" data-width="45" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card__header">
+                                <span class="skill-card__name">Figma</span>
+                                <span class="skill-card__percent">30%</span>
+                            </div>
+                            <div class="skill-card__progress">
+                                <div class="skill-card__progress-bar" data-width="30" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- Футер -->
-        <div class="footer">
-            © 2025 Контакты
-        </div>
+                <!-- Projects Preview -->
+                <section class="projects-main">
+                    <h2 class="section-title">Лучшие проекты</h2>
+                    <div class="projects-main__grid">
+                        <article class="project-preview" data-project-id="1">
+                            <div class="project-preview__icon">📅</div>
+                            <h3 class="project-preview__title">Вечный календарь на C#</h3>
+                            <p class="project-preview__description">
+                                Десктопное приложение для отображения календаря с дополнительными функциями
+                            </p>
+                            <div class="project-preview__tech">C#, WinForms/WPF</div>
+                        </article>
+
+                        <article class="project-preview" data-project-id="4">
+                            <div class="project-preview__icon">🧮</div>
+                            <h3 class="project-preview__title">Матричный калькулятор</h3>
+                            <p class="project-preview__description">
+                                Калькулятор, который умеет работать с матрицами
+                            </p>
+                            <div class="project-preview__tech">C#, WinForms/WPF</div>
+                        </article>
+
+                        <article class="project-preview" data-project-id="5">
+                            <div class="project-preview__icon">🌤</div>
+                            <h3 class="project-preview__title">Прогноз погоды</h3>
+                            <p class="project-preview__description">
+                                Десктопное приложение для отображения прогноза погоды
+                            </p>
+                            <div class="project-preview__tech">Qt, C++, OpenMeteoAPI</div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <p class="footer__copyright">&copy; 2025 Контакты</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -105,26 +173,23 @@
 
         // Функция для анимации прогресс-баров
         function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-bar');
-            const percentages = document.querySelectorAll('.skill-percentage');
-            
+            const skillBars = document.querySelectorAll('.skill-card__progress-bar');
+
             skillBars.forEach((bar, index) => {
                 const targetWidth = bar.getAttribute('data-width');
-                
+
                 setTimeout(() => {
                     bar.style.width = targetWidth + '%';
-                    
-                    setTimeout(() => {
-                        percentages[index].classList.add('show');
-                    }, 1000);
                 }, index * 200);
             });
         }
 
+        // Запуск анимации при загрузке страницы
         window.addEventListener('load', () => {
             setTimeout(animateSkillBars, 300);
         });
 
+        // Наблюдатель для анимации при скролле
         const observerOptions = {
             threshold: 0.5,
             rootMargin: '0px'
@@ -133,26 +198,29 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const skillBars = entry.target.querySelectorAll('.skill-bar');
-                    if (skillBars[0].style.width === '0px' || skillBars[0].style.width === '') {
+                    const skillBars = entry.target.querySelectorAll('.skill-card__progress-bar');
+                    if (skillBars[0] && (skillBars[0].style.width === '0%' || skillBars[0].style.width === '')) {
                         animateSkillBars();
                     }
                 }
             });
         }, observerOptions);
 
-        const skillsSection = document.querySelector('.skills-section');
+        const skillsSection = document.querySelector('.skills-main');
         if (skillsSection) {
             observer.observe(skillsSection);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const projectBoxes = document.querySelectorAll('.project-box');
-            
-            projectBoxes.forEach(box => {
-                box.addEventListener('click', function() {
+        // Обработка кликов по карточкам проектов
+        document.addEventListener('DOMContentLoaded', function () {
+            const projectCards = document.querySelectorAll('.project-preview');
+
+            projectCards.forEach(card => {
+                card.addEventListener('click', function () {
                     const projectId = this.getAttribute('data-project-id');
-                    window.location.href = `pages/projects.html?project=${projectId}`;
+                    if (projectId) {
+                        window.location.href = `pages/projects.html?project=${projectId}`;
+                    }
                 });
             });
         });

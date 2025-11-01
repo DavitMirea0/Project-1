@@ -4,26 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио - Проекты</title>
+    <title>Дневник - Портфолио</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
-    <div class="container">
+     <div class="page">
         <!-- Header -->
-        <div class="header">
-            <div class="logo">
-                <img src="../images/logo.png" alt="">
+        <header class="header">
+            <div class="container">
+                <div class="header__content">
+                    <div class="header__logo">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="12" cy="8" r="6" fill="#FF7262"/>
+                            <circle cx="28" cy="8" r="6" fill="#A259FF"/>
+                            <circle cx="12" cy="20" r="6" fill="#1ABCFE"/>
+                            <circle cx="28" cy="20" r="6" fill="#0ACF83"/>
+                            <circle cx="12" cy="32" r="6" fill="#F24E1E"/>
+                        </svg>
+                        <span class="header__brand">Figma</span>
+                    </div>
+                    <h1 class="header__title">Хачатрян Давид Каренович</h1>
+                </div>
             </div>
-            <div class="name">Хачатрян Давид Каренович</div>
-        </div>
+        </header>
+
 
         <!-- Навигация -->
-        <nav class="nav">
-            <a href="../index.html" class="nav-item">Главная</a>
-            <a href="projects.html" class="nav-item ">Проекты</a>
-            <a href="diary.html" class="nav-item active ">Дневник</a>
-            <a href="contacts.html" class="nav-item">Контакты</a>
+         <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../index.html" class="nav__link">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="projects.html" class="nav__link">Проекты</a>
+                    </li>
+                    <li class="nav__item nav__item--active">
+                        <a href="diary.html" class="nav__link">Дневник</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contacts.html" class="nav__link">Контакты</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
         <!-- Дневник -->
@@ -37,7 +61,7 @@
                 <div class="project-image">
                 </div>
                 <div class="project-card-content">
-                    <h3> 1.09.2025 </h3>
+                    <h3>1.09.2025</h3>
                     <p class="project-description">Изучение C#</p>
                 </div>
             </div>
@@ -71,17 +95,16 @@
                     <h3>17.07.2025</h3>
                     <p class="project-description">Начал изучение базовых основ HTML/CSS, с помощью stepik</p>
                 </div>
+            </div>
 
-                <!-- Запись 5 -->
-                <div class="project-card" data-category="Qt" data-project="5">
-                    <div class="project-image">
-                    </div>
-                    <div class="project-card-content">
-                        <h3>20.02.2025</h3>
-                        <p class="project-description">Начинал изучение во 2 семестре на дисциплине «Технологии индустриального программирования», когда начинали
-                            еще
-                            курсовую писать</p>
-                    </div>
+            <!-- Запись 5 -->
+            <div class="project-card" data-category="Qt" data-project="5">
+                <div class="project-image">
+                </div>
+                <div class="project-card-content">
+                    <h3>20.02.2025</h3>
+                    <p class="project-description">Начинал изучение во 2 семестре на дисциплине «Технологии индустриального программирования», когда начинали
+                        еще курсовую писать</p>
                 </div>
             </div>
 
@@ -128,9 +151,6 @@
                 <button class="my-button">Добавить запись</button>
             </div>
         </div>
-
-
-
 
         <script>
             // Функция для анимации прогресс-баров
@@ -194,8 +214,14 @@
                 });
             });
         </script>
+
         <!-- Футер -->
-        <div class="diary-footer">
-            © 2025 Контакты
-        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <p class="footer__copyright">&copy; 2025 Контакты</p>
+                </div>
+            </div>
+        </footer>
     </div>
+</html>
