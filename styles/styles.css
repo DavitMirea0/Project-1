@@ -386,6 +386,42 @@ body {
     max-width: 100% !important;
 }
 
+/* Дополнительные стили для отступов между карточками в дневнике */
+.diary-page-content .project-card {
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.diary-page-content .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Увеличиваем отступы между секциями в дневнике */
+.diary-page-content {
+    gap: 40px !important;
+}
+
+/* Отступ для секции навыков в дневнике */
+.diary-page-content .skills-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid var(--border-secondary);
+}
+
+/* Улучшаем отображение изображений в карточках дневника */
+.diary-page-content .project-image {
+    margin-bottom: 20px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.diary-page-content .responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .project-box {
     width: 150px;
     height: 150px;
@@ -749,7 +785,7 @@ body {
 
 .diary-header {
     text-align: center;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: 0;
 }
 
 .diary-footer {
@@ -1266,62 +1302,6 @@ body {
     margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 0;
-    }
-    
-    .hero__content,
-    .main-content {
-        flex-direction: column;
-        align-items: center;
-        padding: var(--space-lg);
-    }
-    
-    .nav {
-        flex-direction: column;
-        align-items: center;
-        padding: var(--space-md);
-    }
-    
-    .nav__list {
-        flex-direction: column;
-        gap: var(--space-sm);
-        align-items: center;
-    }
-    
-    .footer__content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .projects-preview__grid,
-    .projects-grid {
-        gap: var(--space-lg);
-    }
-    
-    .skill {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .skill__progress,
-    .skill-bar-container {
-        width: 100%;
-        margin: var(--space-xs) 0;
-    }
-
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-    }
-
-    .contact-info-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* Additional styles for projects page */
 .projects-page-content {
     padding: var(--space-2xl);
@@ -1340,12 +1320,13 @@ body {
 
 .projects-grid-page {
     display: grid;
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
     margin-top: var(--space-2xl);
 }
 
 .project-image {
-    height: 150px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1381,6 +1362,218 @@ body {
     font-style: italic;
 }
 
+/* Photo Box Wrapper */
+.photo-box-wrapper {
+    margin-bottom: var(--space-lg);
+}
+
+/* Увеличение площади для текста и отступы */
+.hero-main__description,
+.hero__description,
+.intro-text {
+    line-height: 1.8;
+    margin-bottom: var(--space-xl);
+    font-size: 16px;
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Отступы между строками через <br> */
+.hero-main__description br,
+.hero__description br,
+.intro-text br {
+    display: block;
+    content: "";
+    margin-bottom: var(--space-sm);
+}
+
+/* Для мобильных */
+@media (max-width: 768px) {
+    .hero-main__description,
+    .hero__description,
+    .intro-text {
+        line-height: 1.6;
+        margin-bottom: var(--space-lg);
+        font-size: 14px;
+        padding: var(--space-sm);
+    }
+}
+
+/* Мобильная адаптация для дневника */
+@media (max-width: 768px) {
+    .diary-page-content {
+        padding: var(--space-lg) !important;
+        gap: 30px !important;
+    }
+    
+    .diary-page-content .project-card {
+        margin-bottom: 25px !important;
+        border-radius: var(--radius-lg) !important;
+    }
+    
+    .diary-page-content .project-image {
+        margin-bottom: 15px !important;
+        height: 200px !important;
+    }
+    
+    .diary-page-content .responsive-image {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+    
+    .diary-page-content .project-card-content {
+        padding: var(--space-md) !important;
+    }
+    
+    .diary-page-content .project-card-content h3 {
+        font-size: 18px !important;
+        margin-bottom: var(--space-sm) !important;
+    }
+    
+    .diary-page-content .project-description {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .diary-page-content .skills-section {
+        margin-top: 30px !important;
+        padding-top: 30px !important;
+    }
+    
+    .diary-page-content .skill {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        margin-bottom: var(--space-md) !important;
+    }
+    
+    .diary-page-content .skill-name {
+        min-width: auto !important;
+        margin-bottom: 8px !important;
+        font-size: 14px !important;
+    }
+    
+    .diary-page-content .skill-bar-container {
+        width: 100% !important;
+        margin: 0 !important;
+        height: 20px !important;
+    }
+    
+    .diary-page-content .skill-percentage {
+        margin-top: 8px !important;
+        text-align: left !important;
+        font-size: 13px !important;
+    }
+    
+    .diary-page-content .my-button {
+        width: 100% !important;
+        padding: var(--space-lg) !important;
+        margin-top: var(--space-xl) !important;
+        font-size: 16px !important;
+    }
+    
+    .diary-header h2 {
+        font-size: 22px !important;
+        margin-bottom: var(--space-lg) !important;
+    }
+}
+
+/* Дополнительные мобильные стили для очень маленьких экранов */
+@media (max-width: 480px) {
+    .diary-page-content {
+        padding: var(--space-md) !important;
+        gap: 25px !important;
+    }
+    
+    .diary-page-content .project-card {
+        margin-bottom: 20px !important;
+    }
+    
+    .diary-page-content .project-image {
+        height: 180px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .diary-page-content .responsive-image {
+        height: 180px !important;
+    }
+    
+    .diary-page-content .project-card-content {
+        padding: var(--space-sm) !important;
+    }
+    
+    .diary-page-content .project-card-content h3 {
+        font-size: 16px !important;
+    }
+    
+    .diary-page-content .project-description {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+    }
+    
+    .diary-page-content .skills-section {
+        margin-top: 25px !important;
+        padding-top: 25px !important;
+    }
+    
+    .diary-page-content .section-title {
+        font-size: 18px !important;
+        margin-bottom: var(--space-lg) !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    
+    .hero__content,
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: var(--space-lg);
+    }
+    
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        padding: var(--space-md);
+    }
+    
+    .footer__content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .projects-preview__grid,
+    .projects-grid {
+        gap: var(--space-lg);
+    }
+    
+    .skill {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .skill__progress,
+    .skill-bar-container {
+        width: 100%;
+        margin: var(--space-xs) 0;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 750px) {
     .header,
     .hero,
@@ -1395,5 +1588,479 @@ body {
     .photo-box {
         width: 150px;
         height: 150px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        align-items: flex-start;
+    }
+    
+    .page {
+        width: 100%;
+    }
+    
+    .container {
+        padding: 0;
+        border-radius: 0;
+        max-width: 100%;
+    }
+    
+    .header {
+        padding: var(--space-lg);
+    }
+    
+    .header__logo {
+        padding: var(--space-sm) var(--space-lg);
+    }
+    
+    .header__brand {
+        font-size: 24px;
+    }
+    
+    .header__title {
+        font-size: 16px;
+    }
+    
+    .nav {
+        padding: var(--space-md);
+    }
+    
+    .nav__list {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: center;
+        width: 100%;
+    }
+    
+    .nav__item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav__link {
+        font-size: 14px;
+        padding: var(--space-sm);
+        display: block;
+        width: 100%;
+    }
+    
+    .main {
+        width: 100%;
+    }
+    
+    .main .container {
+        padding: 0 !important;
+    }
+    
+    .hero-main {
+        padding: var(--space-lg) !important;
+    }
+    
+    .photo-box-wrapper {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .photo-box {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    .hero-main__greeting {
+        font-size: 28px !important;
+        margin-bottom: var(--space-md) !important;
+    }
+    
+    .hero-main__description {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: var(--space-lg) !important;
+    }
+    
+    .button--primary {
+        width: auto;
+        padding: var(--space-sm) var(--space-lg) !important;
+        font-size: 14px !important;
+    }
+    
+    .skills-main {
+        padding: var(--space-lg) !important;
+    }
+    
+    .section-title {
+        font-size: 20px !important;
+        margin-bottom: var(--space-lg) !important;
+    }
+    
+    .skill-card {
+        padding: var(--space-md) !important;
+    }
+    
+    .skill-card__name {
+        font-size: 14px !important;
+    }
+    
+    .skill-card__percent {
+        font-size: 13px !important;
+    }
+    
+    .skill-card__progress {
+        height: 10px !important;
+    }
+    
+    .projects-main {
+        padding: var(--space-lg) !important;
+    }
+    
+    .projects-main__grid {
+        gap: var(--space-md) !important;
+    }
+    
+    .project-preview {
+        padding: var(--space-lg) !important;
+    }
+    
+    .project-preview__icon {
+        font-size: 28px !important;
+    }
+    
+    .project-preview__title {
+        font-size: 18px !important;
+    }
+    
+    .project-preview__description {
+        font-size: 13px !important;
+    }
+    
+    .project-preview__tech {
+        font-size: 12px !important;
+    }
+    
+    .footer {
+        padding: var(--space-md);
+    }
+    
+    .footer__content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer__copyright {
+        font-size: 12px;
+    }
+    
+    .skill {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0 !important;
+        margin-bottom: var(--space-lg) !important;
+        width: 100% !important;
+    }
+    
+    .skill-bar-container {
+        flex: 1 !important;
+        width: auto !important;
+        margin: 0 var(--space-sm) !important;
+        height: 20px !important;
+    }
+    
+    .skill-name {
+        font-size: 13px !important;
+        min-width: 80px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .skill-percentage {
+        font-size: 13px !important;
+        min-width: 35px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .projects-page-content {
+        padding: var(--space-md) !important;
+    }
+    
+    .projects-header {
+        margin-bottom: var(--space-lg) !important;
+    }
+    
+    .projects-title {
+        font-size: 20px !important;
+        margin-bottom: var(--space-sm) !important;
+    }
+    
+    .projects-description {
+        font-size: 13px !important;
+    }
+    
+    .filter-buttons {
+        gap: var(--space-sm) !important;
+        margin-top: var(--space-md) !important;
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        padding: var(--space-xs) var(--space-md) !important;
+        font-size: 13px !important;
+    }
+    
+    .projects-grid-page {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-lg) !important;
+    }
+    
+    /* Diary Page Mobile */
+    .diary-page-content {
+        padding: var(--space-lg) !important;
+        gap: var(--space-lg) !important;
+        max-width: 100% !important;
+    }
+    
+    .diary-header {
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .diary-page-content .project-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        border-radius: var(--radius-lg) !important;
+        margin: 0 !important;
+    }
+    
+    .project-image {
+        height: 180px !important;
+        min-height: 180px !important;
+        max-height: 180px !important;
+        overflow: hidden !important;
+    }
+    
+    .project-image picture,
+    .project-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+    
+    .responsive-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    .project-card-content {
+        padding: var(--space-lg) !important;
+    }
+    
+    .project-card-content h3 {
+        font-size: 16px !important;
+        margin-bottom: var(--space-sm) !important;
+        color: #387040 !important;
+        font-weight: 600 !important;
+    }
+    
+    .project-description {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0 !important;
+        color: rgb(36, 137, 155) !important;
+    }
+    
+    .skills-section {
+        padding: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    .my-button {
+        width: 100% !important;
+        padding: var(--space-lg) !important;
+        margin-top: var(--space-xl) !important;
+        font-size: 15px !important;
+        border-radius: 6px !important;
+    }
+}
+/* Improved Skills Progress Bars - Mobile Friendly */
+.skill {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    width: 100%;
+    gap: var(--space-sm);
+}
+
+.skill-name {
+    color: var(--text-primary);
+    min-width: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.skill-bar-container {
+    flex: 1;
+    height: 20px;
+    background-color: var(--bg-header);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-sm);
+    margin: 0 var(--space-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-color), var(--accent-color));
+    border-radius: var(--radius-sm);
+    transition: width 1.5s ease-out;
+    width: 0;
+    position: relative;
+}
+
+.skill-percentage {
+    color: var(--text-primary);
+    min-width: 40px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* Анимация для прогресс-баров */
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: var(--target-width); }
+}
+
+.skill-bar.animated {
+    animation: fillProgress 1.5s ease-out forwards;
+}
+
+/* Mobile-specific styles for skills */
+@media (max-width: 768px) {
+    .skill {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+        margin-bottom: var(--space-md);
+        padding: var(--space-sm);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: var(--radius-md);
+    }
+    
+    .skill-name {
+        min-width: auto;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    
+    .skill-bar-container {
+        width: 100%;
+        margin: 0;
+        height: 16px;
+        order: 2;
+    }
+    
+    .skill-percentage {
+        order: 1;
+        align-self: flex-end;
+        margin-top: -25px;
+        margin-bottom: 5px;
+        font-size: 12px;
+        min-width: auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+    }
+    
+    .skills__grid {
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .skill {
+        padding: var(--space-xs);
+    }
+    
+    .skill-name {
+        font-size: 12px;
+    }
+    
+    .skill-bar-container {
+        height: 14px;
+    }
+    
+    .skill-percentage {
+        font-size: 11px;
+        padding: 1px 6px;
+    }
+}
+
+/* Ensure skills section looks good on all devices */
+.skills-section {
+    padding: var(--space-2xl);
+    border-bottom: 2px solid var(--border-primary);
+}
+
+.skills-section .section-title {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* JavaScript animation helper classes */
+.skill-bar.animate {
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-percentage.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Touch improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .skill {
+        padding: var(--space-sm);
+    }
+    
+    .skill-bar-container {
+        height: 18px;
+    }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+    .skill-bar {
+        background: var(--success-color);
+        border: 1px solid var(--text-primary);
+    }
+    
+    .skill-bar-container {
+        border: 2px solid var(--text-primary);
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .skill-bar {
+        transition: none;
+        animation: none;
+    }
+    
+    .skill-percentage.fade-in {
+        animation: none;
+        opacity: 1;
     }
 }

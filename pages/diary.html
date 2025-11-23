@@ -9,7 +9,7 @@
 </head>
 
 <body>
-     <div class="page">
+    <div class="page">
         <!-- Header -->
         <header class="header">
             <div class="container">
@@ -31,7 +31,7 @@
 
 
         <!-- Навигация -->
-         <nav class="nav">
+        <nav class="nav">
             <div class="container">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -58,7 +58,19 @@
 
             <!-- Запись 1 -->
             <div class="project-card" data-category="C#" data-project="1">
+                <!-- ДОБАВЛЕНО: Адаптивное изображение с picture element -->
                 <div class="project-image">
+                    <picture>
+                        <!-- Для планшетов и десктопов -->
+                        <source media="(min-width: 45%)" 
+                                srcset="../images/gallery1.png" 
+                                type="image/png">
+                        <!-- Для мобильных устройств -->
+                        <img src="../images/gallery1.png" 
+                             alt="Изучение C#"
+                             class="responsive-image"
+                             loading="lazy">
+                    </picture>
                 </div>
                 <div class="project-card-content">
                     <h3>1.09.2025</h3>
@@ -68,7 +80,17 @@
 
             <!-- Запись 2 -->
             <div class="project-card" data-category="JavaScript" data-project="4">
+                <!-- ДОБАВЛЕНО: Адаптивное изображение -->
                 <div class="project-image">
+                    <picture>
+                        <source media="(min-width: 768px)" 
+                                srcset="../images/gallery2.jpg" 
+                                type="image/jpeg">
+                        <img src="../images/gallery2.jpg" 
+                             alt="Прохождение курса JavaScript"
+                             class="responsive-image"
+                             loading="lazy">
+                    </picture>
                 </div>
                 <div class="project-card-content">
                     <h3>1.09.2025</h3>
@@ -78,7 +100,17 @@
 
             <!-- Запись 3 -->
             <div class="project-card" data-category="Figma" data-project="5">
+                <!-- ДОБАВЛЕНО: Адаптивное изображение -->
                 <div class="project-image">
+                    <picture>
+                        <source media="(min-width: 768px)" 
+                                srcset="../images/logo.png" 
+                                type="image/png">
+                        <img src="../images/logo.png" 
+                             alt="Изучение Figma"
+                             class="responsive-image"
+                             loading="lazy">
+                    </picture>
                 </div>
                 <div class="project-card-content">
                     <h3>13.08.2025</h3>
@@ -89,7 +121,17 @@
 
             <!-- Запись 4 -->
             <div class="project-card" data-category="HTML/CSS" data-project="5">
+                <!-- ДОБАВЛЕНО: Адаптивное изображение -->
                 <div class="project-image">
+                    <picture>
+                        <source media="(min-width: 45%)" 
+                                srcset="../images/gallery4.png" 
+                                type="image/jpeg">
+                        <img src="../images/gallery4.png" 
+                             alt="Изучение HTML/CSS"
+                             class="responsive-image"
+                             loading="lazy">
+                    </picture>
                 </div>
                 <div class="project-card-content">
                     <h3>17.07.2025</h3>
@@ -99,11 +141,22 @@
 
             <!-- Запись 5 -->
             <div class="project-card" data-category="Qt" data-project="5">
+                <!-- ДОБАВЛЕНО: Адаптивное изображение -->
                 <div class="project-image">
+                    <picture>
+                        <source media="(min-width: 768px)" 
+                                srcset="../images/gallery5.jpg" 
+                                type="image/jpeg">
+                        <img src="../images/gallery5.jpg" 
+                             alt="Изучение Qt"
+                             class="responsive-image"
+                             loading="lazy">
+                    </picture>
                 </div>
                 <div class="project-card-content">
                     <h3>20.02.2025</h3>
-                    <p class="project-description">Начинал изучение во 2 семестре на дисциплине «Технологии индустриального программирования», когда начинали
+                    <p class="project-description">Начинал изучение во 2 семестре на дисциплине «Технологии
+                        индустриального программирования», когда начинали
                         еще курсовую писать</p>
                 </div>
             </div>
@@ -111,40 +164,42 @@
             <!-- Навыки -->
             <div class="skills-section">
                 <h2 class="section-title">Текущие курсы</h2>
-                <div class="skill">
-                    <span class="skill-name">C#</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-width="20"></div>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <span class="skill-name">C#</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="20"></div>
+                        </div>
+                        <span class="skill-percentage">20%</span>
                     </div>
-                    <span class="skill-percentage">20%</span>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">HTML/CSS</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-width="30"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML/CSS</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="30"></div>
+                        </div>
+                        <span class="skill-percentage">30%</span>
                     </div>
-                    <span class="skill-percentage">30%</span>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">JavaScript</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-width="25"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="25"></div>
+                        </div>
+                        <span class="skill-percentage">25%</span>
                     </div>
-                    <span class="skill-percentage">25%</span>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">Qt</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-width="45"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">Qt</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="45"></div>
+                        </div>
+                        <span class="skill-percentage">45%</span>
                     </div>
-                    <span class="skill-percentage">45%</span>
-                </div>
-                <div class="skill">
-                    <span class="skill-name">Figma</span>
-                    <div class="skill-bar-container">
-                        <div class="skill-bar" data-width="30"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">Figma</span>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="30"></div>
+                        </div>
+                        <span class="skill-percentage">30%</span>
                     </div>
-                    <span class="skill-percentage">30%</span>
                 </div>
 
                 <!--Кнопка «Добавить запись» -->
@@ -157,30 +212,38 @@
             function animateSkillBars() {
                 const skillBars = document.querySelectorAll('.skill-bar');
                 const percentages = document.querySelectorAll('.skill-percentage');
-
+                
+                // Сначала скрываем все проценты
+                percentages.forEach(percent => {
+                    percent.style.opacity = '0';
+                });
+                
                 skillBars.forEach((bar, index) => {
-                    const targetWidth = bar.getAttribute('data-width');
-
-                    // Задержка для каждого бара
+                    const targetWidth = bar.getAttribute('data-width') + '%';
+                    
+                    // Сбрасываем ширину
+                    bar.style.width = '0';
+                    
+                    // Запускаем анимацию с задержкой
                     setTimeout(() => {
-                        bar.style.width = targetWidth + '%';
-
+                        bar.style.width = targetWidth;
+                        
                         // Показываем проценты после анимации
                         setTimeout(() => {
-                            percentages[index].classList.add('show');
-                        }, 1000);
-                    }, index * 200);
+                            percentages[index].style.opacity = '1';
+                        }, 800);
+                    }, index * 300);
                 });
             }
 
             // Запускаем анимацию при загрузке страницы
-            window.addEventListener('load', () => {
-                setTimeout(animateSkillBars, 300);
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(animateSkillBars, 500);
             });
 
             // Опционально: запускать анимацию при прокрутке до секции навыков
             const observerOptions = {
-                threshold: 0.5,
+                threshold: 0.3,
                 rootMargin: '0px'
             };
 
@@ -188,8 +251,8 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const skillBars = entry.target.querySelectorAll('.skill-bar');
-                        if (skillBars[0].style.width === '0px' || skillBars[0].style.width === '') {
-                            animateSkillBars();
+                        if (skillBars.length > 0 && skillBars[0].style.width === '0px') {
+                            setTimeout(animateSkillBars, 300);
                         }
                     }
                 });
@@ -224,4 +287,6 @@
             </div>
         </footer>
     </div>
+</body>
+
 </html>

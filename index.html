@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Портфолио </title>
+    <title>Главная - Портфолио</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
@@ -16,11 +16,11 @@
                 <div class="header__content">
                     <div class="header__logo">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <circle cx="12" cy="8" r="6" fill="#FF7262" />
-                            <circle cx="28" cy="8" r="6" fill="#A259FF" />
-                            <circle cx="12" cy="20" r="6" fill="#1ABCFE" />
-                            <circle cx="28" cy="20" r="6" fill="#0ACF83" />
-                            <circle cx="12" cy="32" r="6" fill="#F24E1E" />
+                            <circle cx="12" cy="8" r="6" fill="#FF7262"/>
+                            <circle cx="28" cy="8" r="6" fill="#A259FF"/>
+                            <circle cx="12" cy="20" r="6" fill="#1ABCFE"/>
+                            <circle cx="28" cy="20" r="6" fill="#0ACF83"/>
+                            <circle cx="12" cy="32" r="6" fill="#F24E1E"/>
                         </svg>
                         <span class="header__brand">Figma</span>
                     </div>
@@ -28,10 +28,9 @@
                 </div>
             </div>
         </header>
-
         <!-- Navigation -->
-        <nav class="nav">
-            <div class="container">
+        <nav aria-label="Основная навигация">
+ <div class="container">
                 <ul class="nav__list">
                     <li class="nav__item nav__item--active">
                         <a href="index.html" class="nav__link">Главная</a>
@@ -48,20 +47,44 @@
                 </ul>
             </div>
         </nav>
+           
 
         <!-- Main Content -->
         <main class="main">
             <div class="container">
                 <!-- Hero Section -->
                 <section class="hero-main">
-                    <div class="photo-box">
-                        <img class="photo-box" src="images/photo.png" alt="">
+                    <!-- Адаптивная фотография с поддержкой разных форматов и размеров -->
+                    <div class="photo-box-wrapper">
+                        <picture class="photo-box-picture">
+                            <!-- WebP для современных браузеров на больших экранах -->
+                            <source media="(min-width: 768px)" 
+                                    srcset="images/photo.png" 
+                                    type="image/png">
+                             
+                            <!-- PNG для больших экранов -->
+                            <source media="(min-width: 768px)" 
+                                    srcset="images/photo.png" 
+                                    type="image/png">
+                            
+                            <!-- Меньший размер для мобильных устройств -->
+                            <source media="(max-width: 767px)" 
+                                    srcset="images/photo.png" 
+                                    type="image/png">
+                            
+                            <!-- Fallback изображение -->
+                            <img src="images/photo.png" 
+                                 alt="Фото Давида Хачатряна"
+                                 class="photo-box responsive-image"
+                                 loading="eager">
+                        </picture>
                     </div>
+                    
                     <h2 class="hero-main__greeting">Привет! 👋</h2>
                     <p class="hero-main__description">
                         Я студент Института перспективных технологий и индустриального программирования, группа
                         ЭФБО-18-24<br>
-                        Увлекаюсь веб-разработкой и изучению новых технологий
+                        Увлекаюсь веб-разработкой и изучением новых технологий
                     </p>
                     <button class="button button--primary" onclick="openResume()">
                         Скачать резюме
@@ -125,7 +148,7 @@
                     <h2 class="section-title">Лучшие проекты</h2>
                     <div class="projects-main__grid">
                         <article class="project-preview" data-project-id="1">
-                            <div class="project-preview__icon">📅</div>
+                            <div class="project-preview__icon">📆</div>
                             <h3 class="project-preview__title">Вечный календарь на C#</h3>
                             <p class="project-preview__description">
                                 Десктопное приложение для отображения календаря с дополнительными функциями

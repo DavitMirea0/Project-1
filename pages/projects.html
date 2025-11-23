@@ -64,10 +64,28 @@
                 </div>
             </div>
 
-            <div class="projects-grid-page">
+            <!-- Адаптивная галерея проектов -->
+            <div class="projects-grid-page adaptive-gallery">
                 <!-- Проект 1: Вечный календарь на C# -->
                 <div class="project-card" data-category="C#" data-project="1">
-                    <div class="project-image">
+                    <div class="project-image-wrapper">
+                        <picture>
+                            <!-- Для десктопов загружается полное изображение -->
+                            <source media="(min-width: 1024px)" 
+                                    srcset="../images/project1.png" 
+                                    type="image/png">
+                            
+                            <!-- Для планшетов среднее изображение -->
+                            <source media="(min-width: 768px)" 
+                                    srcset="../images/project1.png" 
+                                    type="image/png">
+                            
+                            <!-- Для мобильных устройств маленькое изображение -->
+                            <img src="../images/project1.png" 
+                                 alt="Вечный календарь на C#"
+                                 class="project-image responsive-image"
+                                 loading="lazy">
+                        </picture>
                         <div class="project-placeholder">📆</div>
                     </div>
                     <div class="project-card-content">
@@ -79,7 +97,19 @@
 
                 <!-- Проект 2: Матричный калькулятор на C# -->
                 <div class="project-card" data-category="C#" data-project="4">
-                    <div class="project-image">
+                    <div class="project-image-wrapper">
+                        <picture>
+                            <source media="(min-width: 1024px)" 
+                                    srcset="../images/project2.png" 
+                                    type="image/png">
+                            <source media="(min-width: 768px)" 
+                                    srcset="../images/project2.png" 
+                                    type="image/png">
+                            <img src="../images/project2.png" 
+                                 alt="Матричный калькулятор"
+                                 class="project-image responsive-image"
+                                 loading="lazy">
+                        </picture>
                         <div class="project-placeholder">🧮</div>
                     </div>
                     <div class="project-card-content">
@@ -91,7 +121,19 @@
 
                 <!-- Проект 3: Приложение для погоды на Qt -->
                 <div class="project-card" data-category="Qt" data-project="5">
-                    <div class="project-image">
+                    <div class="project-image-wrapper">
+                        <picture>
+                            <source media="(min-width: 1024px)" 
+                                    srcset="../images/project3.png" 
+                                    type="image/png">
+                            <source media="(min-width: 768px)" 
+                                    srcset="../images/project3.png" 
+                                    type="image/png">
+                            <img src="../images/project3.png" 
+                                 alt="Прогноз погоды"
+                                 class="project-image responsive-image"
+                                 loading="lazy">
+                        </picture>
                         <div class="project-placeholder">⛅</div>
                     </div>
                     <div class="project-card-content">
@@ -115,39 +157,50 @@
                     <ul id="modalFeatures"></ul>
                 </div>
                 <div class="modal-links">
-                    <a href="#" id="liveLink" class="modal-link">Посмотреть проект</a>
+                    <a href="#" id="liveLink" class="modal-link">Посмотреть галерею</a>
                     <a href="#" id="codeLink" class="modal-link" target="_blank">Исходный код</a>
                 </div>
             </div>
         </div>
 
-        <!-- Модальное окно галереи -->
+        <!-- Адаптивное модальное окно галереи с поддержкой разных размеров изображений -->
         <div id="galleryModal" class="gallery-modal">
             <div class="gallery-modal-content">
                 <span class="gallery-close">&times;</span>
                 
                 <div class="gallery-container">
-                    <button class="gallery-nav-btn prev">&#10094;</button>
+                    <button class="gallery-nav-btn prev" aria-label="Предыдущее изображение">&#10094;</button>
                     
                     <div class="gallery-image-container">
-                        <img id="galleryImage" src="" alt="Project Screenshot">
+                        <!-- Адаптивное изображение в галерее -->
+                        <picture id="galleryPicture">
+                            <img id="galleryImage" 
+                                 src="" 
+                                 alt="Project Screenshot"
+                                 class="responsive-image gallery-main-image"
+                                 style="object-fit: contain;">
+                        </picture>
                         <div class="gallery-image-counter">
                             <span id="currentImage">1</span> / <span id="totalImages">0</span>
                         </div>
                     </div>
                     
-                    <button class="gallery-nav-btn next">&#10095;</button>
+                    <button class="gallery-nav-btn next" aria-label="Следующее изображение">&#10095;</button>
                 </div>
                 
-                <!-- Миниатюры -->
-                <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+                <!-- Адаптивные миниатюры -->
+                <div class="gallery-thumbnails adaptive-thumbnails" id="galleryThumbnails"></div>
             </div>
         </div>
 
         <!-- Футер -->
-        <div class="footer">
-            © 2025 Контакты
-        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <p class="footer__copyright">&copy; 2025 Контакты</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- JavaScript -->
@@ -173,7 +226,7 @@
                 },
                 4: {
                     title: "Матричный калькулятор",
-                    description: "Специализированный калькулятор для работы с матрицами. Позволяет выполнять основные математические операции с матрицами: сложение, вычитание, умножение, транспонирование, вычисление определителя и обратной матрицы. Работает все в терминале.",
+                    description: "Специализированный калькулятор для работы с матрицами. Позволяет выполнять основные математические операции с матрицами: сложение, вычитание, умножение, транспонирование, вычисление определителя и обратной матрицы.",
                     tech: "C#",
                     features: [
                         "Сложение и вычитание матриц",
@@ -187,103 +240,89 @@
                 },
                 5: {
                     title: "Прогноз погоды",
-                    description: "Десктопное приложение для отображения прогноза погоды с интеграцией OpenMeteo API. Приложение позволяет получать актуальные данные о погоде в любом городе, отображать температуру, влажность, скорость ветра и другую метеорологическую информацию в удобном интерфейсе.",
+                    description: "Приложение для получения и отображения прогноза погоды. Использует OpenMeteo API для получения актуальных данных о погоде в любой точке мира.",
                     tech: "Qt, C++, OpenMeteoAPI",
                     features: [
-                        "Интеграция с OpenMeteo API",
-                        "Отображение текущей погоды и прогноза",
-                        "Поиск по координатам города(из-за особенности API)",
-                        "Отображение дополнительных параметров (влажность, ветер и т.п.)",
-                        "Кроссплатформенность (Windows, Linux, macOS)"
+                        "Текущая погода в выбранном городе",
+                        "Прогноз на несколько дней вперед",
+                        "Отображение температуры, влажности, давления",
+                        "Графики изменения погоды",
+                        "Поиск по городам"
                     ],
                     liveLink: "#",
                     codeLink: "#"
                 }
             };
 
-            // Данные изображений
-           const projectImages = {
-    1: [ // Вечный календарь
-        '../images/project1.png'
-    ],
-    4: [ // Матричный калькулятор
-        '../images/project2.png'
-    ],
-    5: [ // Прогноз погоды
-        '../images/project3.png'
-    ]
-}
+            // Адаптивные изображения для галереи проектов
+            const projectImages = {
+                1: [
+                    '../images/project1.png'
+                ],
+                4: [
+                    '../images/project2.png'
+                ],
+                5: [
+                    '../images/project3.png'
+                ]
+            };
 
             let currentProjectId = null;
             let currentImageIndex = 0;
 
             // Получить параметр из URL
             function getUrlParameter(name) {
-                const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(name);
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                const results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
             }
 
             // Открыть модальное окно проекта
             function openProjectModal(projectId) {
-                try {
-                    const project = projectsData[projectId];
-                    if (!project) return;
+                const project = projectsData[projectId];
+                if (!project) return;
 
-                    const modal = document.getElementById('projectModal');
-                    document.getElementById('modalTitle').textContent = project.title;
-                    document.getElementById('modalDescription').textContent = project.description;
-                    document.getElementById('modalTech').textContent = project.tech;
-                    
-                    const featuresList = document.getElementById('modalFeatures');
-                    featuresList.innerHTML = '';
-                    project.features.forEach(feature => {
-                        const li = document.createElement('li');
-                        li.textContent = feature;
-                        featuresList.appendChild(li);
-                    });
-                    
-                    const liveLink = document.getElementById('liveLink');
-                    liveLink.dataset.projectId = projectId;
-                    
-                    document.getElementById('codeLink').href = project.codeLink;
-                    
-                    modal.style.display = 'block';
-                } catch (error) {
-                    console.error('Ошибка при открытии модального окна:', error);
-                }
+                currentProjectId = projectId;
+                
+                document.getElementById('modalTitle').textContent = project.title;
+                document.getElementById('modalTech').textContent = project.tech;
+                document.getElementById('modalDescription').textContent = project.description;
+                
+                const featuresList = document.getElementById('modalFeatures');
+                featuresList.innerHTML = '';
+                project.features.forEach(function(feature) {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresList.appendChild(li);
+                });
+                
+                document.getElementById('liveLink').href = project.liveLink;
+                document.getElementById('codeLink').href = project.codeLink;
+                
+                const modal = document.getElementById('projectModal');
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
             }
 
             // Закрыть модальное окно проекта
             function closeProjectModal() {
-                document.getElementById('projectModal').style.display = 'none';
-                const url = new URL(window.location);
-                url.searchParams.delete('project');
-                window.history.replaceState({}, '', url);
+                const modal = document.getElementById('projectModal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
 
             // Открыть галерею
-            function openGallery(event) {
-                try {
-                    event.preventDefault();
-                    
-                    const liveLink = document.getElementById('liveLink');
-                    currentProjectId = liveLink.dataset.projectId;
-                    
-                    if (!projectImages[currentProjectId] || projectImages[currentProjectId].length === 0) {
-                        alert('📸 Скриншоты проекта скоро появятся!');
-                        return;
-                    }
-                    
-                    const galleryModal = document.getElementById('galleryModal');
-                    galleryModal.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                    
-                    loadGalleryThumbnails();
-                    showGalleryImage(0);
-                } catch (error) {
-                    console.error('Ошибка при открытии галереи:', error);
-                    alert('Произошла ошибка при открытии галереи');
-                }
+            function openGallery(e) {
+                e.preventDefault();
+                
+                if (!currentProjectId || !projectImages[currentProjectId]) return;
+                
+                const galleryModal = document.getElementById('galleryModal');
+                galleryModal.style.display = 'block';
+                
+                loadGalleryThumbnails();
+                showGalleryImage(0);
             }
 
             // Закрыть галерею
@@ -293,7 +332,7 @@
                 document.body.style.overflow = 'auto';
             }
 
-            // Загрузить миниатюры
+            // Загрузить адаптивные миниатюры
             function loadGalleryThumbnails() {
                 const thumbnailsContainer = document.getElementById('galleryThumbnails');
                 thumbnailsContainer.innerHTML = '';
@@ -302,15 +341,21 @@
                 document.getElementById('totalImages').textContent = images.length;
                 
                 images.forEach((imagePath, index) => {
+                    // Создаем адаптивную миниатюру с lazy loading
+                    const picture = document.createElement('picture');
                     const img = document.createElement('img');
                     img.src = imagePath;
                     img.alt = 'Screenshot ' + (index + 1);
+                    img.loading = 'lazy';
+                    img.className = 'responsive-image thumbnail-image';
                     img.onclick = function() { showGalleryImage(index); };
-                    thumbnailsContainer.appendChild(img);
+                    
+                    picture.appendChild(img);
+                    thumbnailsContainer.appendChild(picture);
                 });
             }
 
-            // Показать изображение
+            // Показать изображение в галерее с адаптивностью
             function showGalleryImage(index) {
                 const images = projectImages[currentProjectId];
                 
