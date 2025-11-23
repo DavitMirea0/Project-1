@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
-
+<!-- ✅ ИСПРАВЛЕНО: lang="ru" для скринридеров -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты - Портфолио Давида Хачатряна</title>
+    <!-- ✅ ИСПРАВЛЕНО: Описательный заголовок страницы -->
+    <title>Контакты - Свяжитесь с нами | Портфолио Давида Хачатряна</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
-
 <body>
     <div class="page">
-        <!-- Header -->
+        <!-- ✅ ИСПРАВЛЕНО: Семантический <header> -->
         <header class="header">
             <div class="container">
                 <div class="header__content">
                     <div class="header__logo">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
                             <circle cx="12" cy="8" r="6" fill="#FF7262"/>
                             <circle cx="28" cy="8" r="6" fill="#A259FF"/>
                             <circle cx="12" cy="20" r="6" fill="#1ABCFE"/>
@@ -28,9 +28,7 @@
                 </div>
             </div>
         </header>
-
-        <!-- Navigation -->
-        <nav class="nav">
+        <nav aria-label="Основная навигация">
             <div class="container">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -43,16 +41,14 @@
                         <a href="diary.html" class="nav__link">Дневник</a>
                     </li>
                     <li class="nav__item nav__item--active">
-                        <a href="contacts.html" class="nav__link">Контакты</a>
+                        <a href="contacts.html" class="nav__link" aria-current="page">Контакты</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Main Content -->
         <main class="main">
             <div class="container">
-                <!-- Contact Form Section -->
                 <section class="contacts">
                     <h2 class="projects-title">Свяжитесь со мной</h2>
                     <p class="projects-description">
@@ -60,152 +56,263 @@
                         буду рад обсудить детали. Заполните форму ниже или свяжитесь со мной напрямую.
                     </p>
 
-                    <!-- Contact Form -->
-                    <form class="contact-form" id="contactForm">
-                        <div class="form__group">
-                            <label for="name" class="form__label">
-                                Имя <span class="required">*</span>
-                            </label>
-                            <input type="text" id="name" name="name" class="form__input" required
-                                placeholder="Введите ваше имя">
+                    <form class="contact-form" 
+                          id="contactForm" 
+                          novalidate 
+                          aria-describedby="form-instructions">
+                    
+                        <div id="form-instructions" class="sr-only">
+                            Все поля, отмеченные звёздочкой, обязательны для заполнения. Используйте Tab для навигации по полям.
                         </div>
 
-                        <div class="form__group">
-                            <label for="phone" class="form__label">
-                                Телефон <span class="required">*</span>
-                            </label>
-                            <input type="tel" id="phone" name="phone" class="form__input" required
-                                placeholder="+7 (999) 999-99-99">
-                        </div>
+                        <!-- 
+                        -->
+                        <fieldset>
+                            <legend>Контактная информация</legend>
+                            
+                            <!-- Поле: Имя -->
+                            <div class="form__group">
+                                <label for="name" class="form__label">
+                                    Имя <span class="required" aria-label="обязательное поле">*</span>
+                                </label>
+                                <input type="text" 
+                                       id="name" 
+                                       name="name" 
+                                       class="form__input" 
+                                       required
+                                       aria-required="true" 
+                                       aria-describedby="name-error"
+                                       placeholder="Введите ваше имя">
+                                <span id="name-error" class="error sr-only" role="alert">
+                                    Введите корректное имя (минимум 2 символа).
+                                </span>
+                            </div>
 
-                        <div class="form__group">
-                            <label for="email" class="form__label">
-                                Электронная почта <span class="required">*</span>
-                            </label>
-                            <input type="email" id="email" name="email" class="form__input" required
-                                placeholder="example@mail.com">
-                        </div>
+                            <!-- Поле: Телефон -->
+                            <div class="form__group">
+                                <label for="phone" class="form__label">
+                                    Телефон <span class="required" aria-label="обязательное поле">*</span>
+                                </label>
+                                <input type="tel" 
+                                       id="phone" 
+                                       name="phone" 
+                                       class="form__input" 
+                                       required
+                                       aria-required="true" 
+                                       aria-describedby="phone-error"
+                                       placeholder="+7 (999) 999-99-99"
+                                       pattern="[\+]?[0-9\s\-\(\)]+">
+                                <span id="phone-error" class="error sr-only" role="alert">
+                                    Введите корректный телефон (например, +7 900 123-45-67).
+                                </span>
+                            </div>
 
-                        <div class="form__group">
-                            <label for="message" class="form__label">
-                                Сообщение <span class="required">*</span>
-                            </label>
-                            <textarea id="message" name="message" class="form__textarea" rows="5" required
-                                placeholder="Введите ваше сообщение..."></textarea>
-                        </div>
+                            <!-- Поле: Email -->
+                            <div class="form__group">
+                                <label for="email" class="form__label">
+                                    Электронная почта <span class="required" aria-label="обязательное поле">*</span>
+                                </label>
+                                <input type="email" 
+                                       id="email" 
+                                       name="email" 
+                                       class="form__input" 
+                                       required
+                                       aria-required="true" 
+                                       aria-describedby="email-error"
+                                       placeholder="example@mail.com">
+                                <span id="email-error" class="error sr-only" role="alert">
+                                    Введите корректный email-адрес.
+                                </span>
+                            </div>
+                        </fieldset>
+
+                        <!-- Fieldset: Сообщение -->
+                        <fieldset>
+                            <legend>Сообщение</legend>
+                            <div class="form__group">
+                                <label for="message" class="form__label">
+                                    Текст сообщения <span class="required" aria-label="обязательное поле">*</span>
+                                </label>
+                                <textarea id="message" 
+                                          name="message" 
+                                          class="form__textarea" 
+                                          rows="5" 
+                                          required
+                                          aria-required="true" 
+                                          aria-describedby="message-error"
+                                          placeholder="Введите ваше сообщение..."></textarea>
+                                <span id="message-error" class="error sr-only" role="alert">
+                                    Введите сообщение (минимум 10 символов).
+                                </span>
+                            </div>
+                        </fieldset>
 
                         <button type="submit" class="button button--primary">
                             Отправить сообщение
                         </button>
+                        <div id="form-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
                     </form>
                 </section>
 
-                <!-- Contact Info Section -->
-                <section class="contact-info-section">
-                    <h2 class="projects-title">Контактная информация</h2>
+                <section class="contact-info-section" role="region" aria-labelledby="contact-info-heading">
+                    <h2 id="contact-info-heading" class="projects-title">Контактная информация</h2>
 
-                    <div class="contact-info-grid">
+                    <ul class="contact-info-grid" role="list">
                         <!-- Email -->
-                        <div class="contact-info-card">
-                            <!-- ДОБАВЛЕНО: Retina-ready иконка с fallback на emoji -->
+                        <li class="contact-info-card" role="listitem">
                             <div class="contact-info-card__icon-container">
                                 <picture>
-                                    <!-- Retina-версия для экранов высокой плотности -->
-                                    <source srcset="../images/icon-email@2x.png 2x, ../images/icon-email@1x.png 1x"
-                                            type="image/png">
+                                    <source srcset="../images/icon-email@2x.png 2x, ../images/icon-email@1x.png 1x" type="image/png">
                                     <img src="../images/icon-email@1x.png" 
-                                         alt="Email Icon" 
-                                         class="contact-icon-img responsive-image"
-                                         loading="lazy"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                         alt="" 
+                                         class="contact-icon-img responsive-image" 
+                                         loading="lazy" 
+                                         aria-hidden="true">
                                 </picture>
-                                <!-- Оригинальная emoji-иконка (fallback если нет изображения) -->
-                                <div class="contact-info-card__icon" style="display: block;">📧</div>
+                                <div class="contact-info-card__icon" aria-hidden="true">📧</div>
                             </div>
                             <h3 class="contact-info-card__title">Email</h3>
-                            <a href="mailto:davitxch2005@gmail.com" class="contact-info-card__link">
+                            <!-- ✅ ИСПРАВЛЕНО: aria-label на ссылке -->
+                            <a href="mailto:davitxch2005@gmail.com" 
+                               class="contact-info-card__link" 
+                               aria-label="Написать на email davitxch2005@gmail.com">
                                 davitxch2005@gmail.com
                             </a>
-                        </div>
+                        </li>
 
                         <!-- GitHub -->
-                        <div class="contact-info-card">
-                            <!-- ДОБАВЛЕНО: Retina-ready иконка с fallback на emoji -->
+                        <li class="contact-info-card" role="listitem">
                             <div class="contact-info-card__icon-container">
                                 <picture>
-                                    <source srcset="../images/icon-github@2x.png 2x, ../images/icon-github@1x.png 1x"
-                                            type="image/png">
+                                    <source srcset="../images/icon-github@2x.png 2x, ../images/icon-github@1x.png 1x" type="image/png">
                                     <img src="../images/icon-github@1x.png" 
-                                         alt="GitHub Icon" 
-                                         class="contact-icon-img responsive-image"
-                                         loading="lazy"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                         alt="" 
+                                         class="contact-icon-img responsive-image" 
+                                         loading="lazy" 
+                                         aria-hidden="true">
                                 </picture>
-                                <!-- Оригинальная emoji-иконка (fallback) -->
-                                <div class="contact-info-card__icon" style="display: block;">💻</div>
+                                <div class="contact-info-card__icon" aria-hidden="true">💻</div>
                             </div>
                             <h3 class="contact-info-card__title">GitHub</h3>
-                            <a href="https://github.com/DavitMirea0" target="_blank"
-                                class="contact-info-card__link">
+                            <a href="https://github.com/DavitMirea0" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="contact-info-card__link"
+                               aria-label="Перейти на GitHub профиль DavitMirea0 (откроется в новой вкладке)">
                                 github.com/DavitMirea0
                             </a>
-                        </div>
+                        </li>
 
-                        <!-- Location -->
-                        <div class="contact-info-card">
-                            <!-- ДОБАВЛЕНО: Retina-ready иконка с fallback на emoji -->
+                        <!-- Местоположение -->
+                        <li class="contact-info-card" role="listitem">
                             <div class="contact-info-card__icon-container">
                                 <picture>
-                                    <source srcset="../images/icon-location@2x.png 2x, ../images/icon-location@1x.png 1x"
-                                            type="image/png">
+                                    <source srcset="../images/icon-location@2x.png 2x, ../images/icon-location@1x.png 1x" type="image/png">
                                     <img src="../images/icon-location@1x.png" 
-                                         alt="Location Icon" 
-                                         class="contact-icon-img responsive-image"
-                                         loading="lazy"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                         alt="" 
+                                         class="contact-icon-img responsive-image" 
+                                         loading="lazy" 
+                                         aria-hidden="true">
                                 </picture>
-                                <!-- Оригинальная emoji-иконка (fallback) -->
-                                <div class="contact-info-card__icon" style="display: block;">📍</div>
+                                <div class="contact-info-card__icon" aria-hidden="true">📍</div>
                             </div>
                             <h3 class="contact-info-card__title">Местоположение</h3>
-                            <p class="contact-info-card__text">
-                                Москва, Россия
-                            </p>
-                        </div>
-                    </div>
+                            <p class="contact-info-card__text">Москва, Россия</p>
+                        </li>
+                    </ul>
                 </section>
             </div>
         </main>
 
-        <script>
-            // Обработка формы
-            document.getElementById('contactForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                // Здесь можно добавить отправку данных на сервер
-                console.log('Отправка формы:', { name, phone, email, message });
-
-                alert('Спасибо за ваше сообщение! Я свяжусь с вами в ближайшее время.');
-
-                // Очистка формы
-                this.reset();
-            });
-        </script>
-        
-        <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <div class="footer__content">
-                    <p class="footer__copyright">&copy; 2025 Контакты</p>
+                    <p class="footer__copyright">&copy; 2025 Хачатрян Давид Каренович</p>
                 </div>
             </div>
         </footer>
     </div>
-</body>
 
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this;
+            const status = document.getElementById('form-status');
+            const inputs = form.querySelectorAll('[aria-required="true"]');
+
+            let valid = true;
+            let firstInvalidField = null;
+
+            inputs.forEach(input => {
+                const errorSpan = document.getElementById(input.id + '-error');
+                
+                // Сброс ошибок
+                input.setAttribute('aria-invalid', 'false');
+                errorSpan.classList.add('sr-only');
+                input.classList.remove('form__input--error');
+
+                // Проверка пустоты
+                if (!input.value.trim()) {
+                    markInvalid(input, errorSpan);
+                    valid = false;
+                    if (!firstInvalidField) firstInvalidField = input;
+                    return;
+                }
+
+                // Дополнительная валидация
+                if (input.type === 'email' && !input.validity.valid) {
+                    markInvalid(input, errorSpan, 'Введите корректный email.');
+                    valid = false;
+                    if (!firstInvalidField) firstInvalidField = input;
+                } else if (input.id === 'message' && input.value.length < 10) {
+                    markInvalid(input, errorSpan, 'Сообщение должно быть не менее 10 символов.');
+                    valid = false;
+                    if (!firstInvalidField) firstInvalidField = input;
+                } else if (input.id === 'phone' && !input.validity.valid) {
+                    markInvalid(input, errorSpan, 'Введите корректный номер телефона.');
+                    valid = false;
+                    if (!firstInvalidField) firstInvalidField = input;
+                }
+            });
+
+            function markInvalid(input, errorSpan, customMessage) {
+                input.setAttribute('aria-invalid', 'true');
+                input.classList.add('form__input--error');
+                if (customMessage) errorSpan.textContent = customMessage;
+                errorSpan.classList.remove('sr-only');
+                errorSpan.setAttribute('role', 'alert'); // Анонсирует скринридеру
+            }
+
+            if (valid) {
+                // Успешная отправка
+                const data = Object.fromEntries(new FormData(form));
+                console.log('Отправка данных:', data);
+                
+                status.textContent = 'Сообщение успешно отправлено! Я свяжусь с вами в ближайшее время.';
+                form.reset();
+                
+                setTimeout(() => status.textContent = '', 5000);
+                alert('Спасибо за сообщение!');
+            } else {
+                // Фокус на первое невалидное поле
+                status.textContent = 'Пожалуйста, исправьте ошибки в форме.';
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
+                }
+            }
+        });
+
+        // Убираем ошибки при вводе
+        document.querySelectorAll('.form__input, .form__textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                const errorSpan = document.getElementById(this.id + '-error');
+                if (errorSpan) {
+                    this.setAttribute('aria-invalid', 'false');
+                    this.classList.remove('form__input--error');
+                    errorSpan.classList.add('sr-only');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
